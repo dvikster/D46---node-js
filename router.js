@@ -17,11 +17,18 @@ http.createServer(function(request, response){
         case '/about':
             loadPage('about');
             break;
+
         case '/cat.png': {
             response.writeHead(200, {'Content-Type': 'image/png'});
             fs.createReadStream("cat.png").pipe(response);
             break;
         }
+        case '/css.css':{
+            response.writeHead(200,{'Content-Type':'text/css'});
+            fs.createReadStream('css.css').pipe(response);
+            break;
+        }
+
         default:
 
             loadPage('404');
